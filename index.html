@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cẩm nang Quản gia Hugo</title>
+<meta name="description" content="Tra nhanh mọi lệnh của bot Zalo Quản gia Hugo: ghi thu chi, báo cáo, quỹ, ví, lịch và nhắc hẹn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="top">
+  <section class="wrap hero">
+    <div class="hero-l">
+      <span class="tag" id="count"></span>
+      <h1>Mọi lệnh của Hugo, tra trong 5 giây.</h1>
+      <p>Cẩm nang cho cả nhà: gõ gì, Hugo trả lời ra sao, và khi nào Hugo tự nhắn. Quên lệnh thì mở trang này, không cần nhớ hết.</p>
+      <div class="btns"><a class="btn" href="#lenh">Tra lệnh ngay</a><a class="btn alt" href="#module">Xem các module</a></div>
+      <div class="hot" id="hot"><span>Hay dùng:</span></div>
+    </div>
+    <div class="phone">
+      <div class="phone-h"><i aria-hidden="true">H</i><div><b>Nhóm gia đình</b><small>Quản gia Hugo đang hoạt động</small></div></div>
+      <div class="chat" id="demo"></div>
+    </div>
+  </section>
+
+  <section class="wrap band" id="batdau"><div class="rules" id="rules"></div></section>
+
+  <section class="wrap band" id="module">
+    <h2 class="h">Hugo làm được gì?</h2>
+    <p class="lead">Mỗi module là một nhóm chức năng. Chọn một thẻ để xem hướng dẫn và demo từng lệnh.</p>
+    <div class="grid" id="cards"></div>
+  </section>
+
+  <section class="ref" id="lenh"><div class="wrap">
+    <div class="ref-h">
+      <div><h2>Bảng tra lệnh</h2><p>Gõ vài chữ để lọc: <span class="mono">thang</span>, <span class="mono">rut</span>, <span class="mono">nhac</span>…</p></div>
+      <label class="sr" for="q">Tìm lệnh</label>
+      <input id="q" class="search" type="search" placeholder="Tìm lệnh hoặc việc cần làm…" autocomplete="off">
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Lọc theo module"></div>
+    <div class="tbl" id="tbl"></div>
+  </div></section>
+
+  <section class="wrap" id="tudong">
+    <h2 class="h">Hugo tự nhắn, không cần gọi</h2>
+    <p class="lead">Lịch những tin Hugo chủ động gửi vào nhóm gia đình.</p>
+    <div class="auto" id="auto"></div>
+  </section>
+</main>
+
+<script src="core.js"></script>
+<script src="modules/ghi.js"></script>
+<script src="modules/bao.js"></script>
+<script src="modules/quy.js"></script>
+<script src="modules/vi.js"></script>
+<script src="modules/lich.js"></script>
+<script src="modules/ai.js"></script>
+<script src="modules/dk.js"></script>
+<script src="modules/kd.js"></script>
+<script src="home.js"></script>
+</body>
+</html>
