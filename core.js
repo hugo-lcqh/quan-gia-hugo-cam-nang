@@ -9,7 +9,7 @@
       { n: '1', title: 'Nhóm gia đình và chat riêng', text: 'Hugo chỉ trả lời nhóm gia đình và chat riêng với thành viên. Lịch và Nhà dùng được trong chat riêng khi đã bật; ghi hộ chỉ trong nhóm.' },
       { n: '2', title: 'Hugo hỏi thì gõ ok', text: 'Gõ ok để xác nhận (trong 10 phút), gõ 0 hoặc huy để hủy. Chỉ người nhắn mới xác nhận được.' },
       { n: '3', title: 'Ghi nhầm thì sửa ngay', text: 'Gõ .xoa, .sua hoặc .doi để chữa khoản bạn vừa ghi. Quên lệnh thì gõ .help.' },
-      { n: '4', title: 'Hỏi tự nhiên', text: 'Hỏi Hugo bằng câu tự nhiên, không cần nhớ lệnh. Trong chat riêng nhắn thẳng; trong nhóm gọi "Hugo" trước câu.' }
+      { n: '4', title: 'Hỏi tự nhiên', text: 'Hỏi Hugo bằng câu tự nhiên, không cần nhớ lệnh. Trong chat riêng nhắn thẳng; trong nhóm gọi "Hugo" trước câu. Hugo chưa hiểu hết câu thì nhờ AI hiểu và hỏi lại; AI tắt/hết lượt thì hiện hướng dẫn cách gõ (thay đổi đang chờ deploy).' }
     ],
     // Lịch Hugo chủ động nhắn vào nhóm
     auto: [
