@@ -2,7 +2,7 @@
    Thêm module mới = tạo site/modules/<id>.js gọi HUGO.add({...}) và thêm 1 thẻ <script> vào index.html + module.html. */
 (function () {
   const H = (window.HUGO = {
-    updated: '03/11/2026',
+    updated: '08/11/2026',
     mods: [],
     add(m) { this.mods.push(m); this.mods.sort((a, b) => a.order - b.order); },
     rules: [
@@ -12,9 +12,10 @@
     ],
     // Lịch Hugo chủ động nhắn vào nhóm
     auto: [
-      { time: '07:00', when: 'MỖI SÁNG', title: 'Bản tin gia đình', text: 'Lịch hôm nay, khoản định kỳ đến hạn chưa ghi, ngân sách và cảnh báo.' },
+      { time: '07:00', when: 'MỖI SÁNG', title: 'Bản tin gia đình', text: 'Lịch hôm nay, khoản định kỳ đến hạn chưa ghi, ngân sách, giấy tờ và bảo trì sắp tới hạn.' },
       { time: '08:30', when: 'MỖI SÁNG', title: 'Nhắc khoản định kỳ', text: 'Gõ ok để ghi tất cả, hoặc ok 1 3 để chọn.' },
       { time: '−15p', when: 'TRƯỚC SỰ KIỆN CÓ GIỜ', title: 'Nhắc hẹn', text: 'Hugo nhắn vào nhóm trước giờ bắt đầu 15 phút.' },
+      { time: '−30/7 ngày', when: 'TRƯỚC HẠN GIẤY TỜ, BẢO HÀNH, BẢO TRÌ', title: 'Nhắc tới hạn', text: 'Hugo nhắn vào nhóm hai lần, khi còn 30 ngày và 7 ngày.' },
       { time: '21:00', when: 'MỖI TỐI', title: 'Tổng kết hôm nay', text: 'Nhắc ghi chép nếu cả nhà chưa ghi khoản nào.' },
       { time: '20:00', when: 'CHỦ NHẬT', title: 'Báo cáo tuần', text: 'Tổng thu chi tuần, so tuần trước, nhận xét của Hugo.' },
       { time: '08:00', when: 'NGÀY 1 HẰNG THÁNG', title: 'Báo cáo tháng trước', text: 'Tổng kết, tiền dư chưa phân bổ và tiến độ quỹ.' }

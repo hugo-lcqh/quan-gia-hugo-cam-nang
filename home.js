@@ -9,7 +9,7 @@
 
   $('count').textContent = `${mods.length} module · ${rows.length} lệnh chính · đang mở rộng`;
 
-  ['45k cafe', '.thang', '.rut', '.lich', '@Hugo'].forEach((t) => $('hot').append(el('a', { class: 'mono', href: '#lenh' }, t)));
+  ['45k cafe', '.thang', '.rut', '.lich', '.giayto', '@Hugo'].forEach((t) => $('hot').append(el('a', { class: 'mono', href: '#lenh' }, t)));
 
   $('demo').replaceWith(HUGO.chat([
     ['u', '45k cafe'],
