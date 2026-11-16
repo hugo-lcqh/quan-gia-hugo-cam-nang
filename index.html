@@ -28,9 +28,17 @@
   <section class="wrap band" id="batdau"><div class="rules" id="rules"></div></section>
 
   <section class="wrap band" id="module">
-    <h2 class="h">Hugo làm được gì?</h2>
+    <h2 class="h" id="module-heading" tabindex="-1">Hugo làm được gì?</h2>
     <p class="lead">Mỗi module là một nhóm chức năng. Chọn một thẻ để xem hướng dẫn và demo từng lệnh.</p>
-    <div class="grid" id="cards"></div>
+    <div class="module-view-controls" id="module-view-controls" role="group" aria-label="Cách xem module" hidden>
+      <button class="tab" id="module-view-cards" type="button" aria-pressed="true" aria-controls="cards">Thẻ</button>
+      <button class="tab" id="module-view-map" type="button" aria-pressed="false" aria-controls="mindmap-overview mindmap-detail">Sơ đồ</button>
+    </div>
+    <p class="sr" id="module-view-status" role="status" aria-live="polite" aria-atomic="true"></p>
+    <div class="grid module-scene" id="cards"></div>
+    <div class="module-scene" id="mindmap-overview" role="region" aria-labelledby="mindmap-heading" hidden></div>
+    <div class="module-scene" id="mindmap-detail" role="region" aria-label="Hướng dẫn module" hidden></div>
+    <noscript><p>Cẩm nang cần JavaScript để hiển thị module và bảng tra lệnh.</p></noscript>
   </section>
 
   <section class="ref" id="lenh"><div class="wrap">

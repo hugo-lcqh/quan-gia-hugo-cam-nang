@@ -54,6 +54,50 @@
     msgs.map(([who, t]) => H.el('div', { class: who }, t)),
     caption === false ? null : H.el('small', {}, 'Minh họa cách Hugo trả lời'));
 
+  /* Dựng nội dung mới, chưa gắn DOM; controller giữ title, route và focus.
+     idPrefix chỉ đổi ID DOM, sectionHref chỉ đổi liên kết mục lục. */
+  H.moduleContent = function (m, options = {}) {
+    const { idPrefix = '', includeCommands = false, includeRules = false,
+      sectionHref = (s) => '#' + idPrefix + s.id } = options;
+    const el = H.el;
+    const sections = (m.sections || []).map((s) => el('section', { class: 'sec', id: idPrefix + s.id },
+      el('div', { class: 'txt' },
+        el('h2', {}, s.title),
+        s.text != null ? el('p', {}, s.text) : null,
+        s.rows ? el('div', {}, s.rows.map(([c, d]) => el('div', { class: 'row' }, el('code', {}, c), el('span', {}, d)))) : null,
+        (s.notes || []).map((n) => el('div', { class: 'note' }, el('b', { 'aria-hidden': 'true' }, '!'), el('span', {}, n)))),
+      s.chat ? H.chat(s.chat) : null));
+
+    // Synthetic regions deliberately have no IDs: even a source section named
+    // "commands" or "rules" must retain its own unambiguous anchor.
+    if (includeCommands) {
+      const cells = (values, role) => values.map((text, i) => el('span', {
+        role, class: ['c mono', 'd', 'e mono'][i]
+      }, text));
+      sections.push(el('section', { class: 'sec module-commands' }, el('div', { class: 'txt' },
+        el('h2', {}, 'Bảng lệnh'),
+        el('div', { class: 'tbl', role: 'table', 'aria-label': 'Bảng lệnh ' + m.name },
+          el('div', { role: 'rowgroup' }, el('div', { class: 'tr', role: 'row' },
+            cells(['Lệnh', 'Mô tả', 'Ví dụ'], 'columnheader'))),
+          el('div', { role: 'rowgroup' }, (m.cmds || []).map((tuple) =>
+            el('div', { class: 'tr', role: 'row' }, cells(tuple, 'cell'))))))));
+    }
+    if (includeRules) sections.push(el('section', { class: 'sec module-rules' }, el('div', { class: 'txt' },
+      el('h2', {}, 'Thông tin dùng chung'),
+      H.rules.map((r) => el('div', { class: 'rule' }, el('i', {}, r.n),
+        el('div', {}, el('b', {}, r.title), el('span', {}, r.text)))))));
+
+    return el('div', { class: 'module-content' },
+      el('div', { class: 'mh' },
+        el('div', { class: 'mh-t' }, el('span', { class: 'ico', style: `background:${m.bg}` }, H.icon(m, 32)),
+          el('div', {}, el('h1', {}, m.name), el('p', {}, m.blurb))),
+        el('div', { class: 'badges' }, (m.badges || []).map((b) => el('span', { class: 'badge', style: H.tint(m) }, b)))),
+      el('div', { class: 'layout' },
+        el('nav', { class: 'toc', 'aria-label': 'Trong trang này' }, el('small', {}, 'TRONG TRANG NÀY'),
+          (m.sections || []).map((s) => el('a', { href: sectionHref(s) }, s.title))),
+        el('div', { class: 'secs' }, sections)));
+  };
+
   /* Dựng thanh đầu + chân trang. active: 'home' | 'module' */
   H.chrome = function (active) {
     const home = active === 'home' ? '' : 'index.html';
