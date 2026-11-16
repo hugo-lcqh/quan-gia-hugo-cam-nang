@@ -52,7 +52,7 @@ a:hover{text-decoration:underline}
 .band{padding-bottom:72px}
 h2.h{margin:0 0 8px;font-size:36px;font-weight:800;letter-spacing:-.8px}
 .lead{margin:0 0 28px;font-size:17px;color:var(--muted)}
-.rules{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.rules{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 .rule{display:flex;gap:16px}
 .rule i{flex:0 0 36px;height:36px;border-radius:10px;background:#E3EDFF;color:#0A4BB8;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700}
 .rule b{display:block;font-size:17px}.rule span{font-size:15px;color:var(--muted)}
@@ -160,6 +160,7 @@ footer.foot .wrap{padding-top:32px;padding-bottom:32px;display:flex;flex-wrap:wr
 .mindmap:not(:has(.mindmap-branch)) .mindmap-root::after{display:none}
 
 @media (min-width:960px){
+  .rules{grid-template-columns:repeat(4,minmax(0,1fr))}
   .mindmap{grid-template-columns:minmax(0,1fr) 180px minmax(0,1fr);align-items:center}
   .mindmap-root{grid-column:2;grid-row:1;justify-self:stretch}
   .mindmap-root::before,.mindmap-root::after{content:'';position:absolute;top:50%;left:auto;right:100%;width:var(--branch-gap);height:0;border:0;border-top:2px solid var(--connector);pointer-events:none}
